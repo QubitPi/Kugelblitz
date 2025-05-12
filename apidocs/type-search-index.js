@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.qubitpi.ws.entity","l":"Application"},{"p":"org.qubitpi.ws.entity","l":"SwaggerConfig"}];updateSearchResults();
