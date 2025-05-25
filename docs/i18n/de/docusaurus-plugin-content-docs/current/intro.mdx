@@ -1,0 +1,105 @@
+---
+sidebar_position: 1
+title: Einführung
+---
+
+Schnellstart
+------------
+
+### Quellcode abrufen
+
+```console
+git clone git@github.com:QubitPi/Kugelblitz.git
+cd Kugelblitz
+```
+
+### Umgebungsvariablen festlegen
+
+:::tip
+
+- Sie können die Werte von `KUGELBLITZ_ARANGO_USERNAME` und `KUGELBLITZ_ARANGO_PASSWORD` gerne ändern. Die folgenden
+  Werte sind nur Beispiele.
+- Bitte ändern Sie jedoch NICHT die Werte `http://arango-db:8529` und `$KUGELBLITZ_ARANGO_PASSWORD`.
+
+:::
+
+```console
+export KUGELBLITZ_ARANGO_HOSTS=http://arango-db:8529 && \
+export KUGELBLITZ_ARANGO_USERNAME=root && \
+export KUGELBLITZ_ARANGO_PASSWORD=root && \
+export ARANGO_ROOT_PASSWORD=$KUGELBLITZ_ARANGO_PASSWORD
+```
+
+### Dienste hochfahren
+
+Es gibt eine Referenz [docker-compose.yaml](https://github.com/QubitPi/Kugelblitz/blob/master/docker-compose.yaml), die
+wir für die Produktion verwenden können. Führen Sie einfach Folgendes aus:
+
+```console
+docker compose up
+```
+
+Sobald die Ausgabe wie folgt aussieht:
+
+```text
+arango-db-1  | 2025-05-11T15:26:29Z [1] INFO [cf3f4] {general} ArangoDB (version 3.11.13 [linux]) is ready for business. Have fun!
+kugelblitz-1  |
+kugelblitz-1  |   .   ____          _            __ _ _
+kugelblitz-1  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+kugelblitz-1  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+kugelblitz-1  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+kugelblitz-1  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+kugelblitz-1  |  =========|_|==============|___/=/_/_/_/
+kugelblitz-1  |
+kugelblitz-1  |  :: Spring Boot ::                (v3.4.4)
+kugelblitz-1  |
+...
+kugelblitz-1  | 2025-05-11T15:27:29.539Z  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+```
+
+Das bedeutet, wir sind bereit, mit Kugelblitz zu spielen. Erstellen wir zunächst eine Buch-Entität.
+
+```console
+curl -X 'POST' \
+  'http://localhost:8080/arango/createDocument/library/books' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "title": "Pride and Prejudice",
+  "author": "Jane Austen"
+}'
+```
+
+Als Nächstes überprüfen wir, ob die Daten in der Datenbank gespeichert wurden. Die Schnellstartanleitung verwendet
+[ArangoDB](https://arango.qubitpi.org/) als Persistenzdatenbank. Wir können zunächst die Arando-Webkonsole unter
+__http://localhost:8529/__ aufrufen. Sie sollte zu einer Seite wie der folgenden führen:
+
+![ArangoDB-Webkonsolen-Login](img/arango-login.png "Fehler beim Laden von img/arango-login.png").
+
+Verwenden Sie __root__ als Benutzernamen und __root__ als Passwort. Navigieren Sie anschließend zur Datenseite, indem
+Sie auf __Login__ klicken -> im Datenbank-Dropdown-Menü __library__ auswählen -> auf __Select DB: library__ klicken ->
+auf __books__ [collection](https://arango.qubitpi.org/stable/concepts/data-structure/collections/) klicken -> in der
+oberen Navigationsleiste auf __Content__ klicken. Wie wir sehen, liegen die Daten bereits als
+[Arango-Dokument](https://arango.qubitpi.org/stable/concepts/data-structure/documents/) in der Datenbank vor:
+
+![Beispieldaten in ArangoDB](img/example-data.png "Fehler beim Laden von img/example-data.png")
+
+:::tip
+
+Weitere Endpunkte finden Sie unter http://localhost:8080/swagger-ui/index.html
+
+:::
+
+### Fehlerbehebung
+
+#### Healthcheck schlägt fehl
+
+[Healthcheck-Protokolle prüfen](https://stackoverflow.com/a/42738182) mit
+`docker inspect --format "{{json .State.Health }}" <Containername> | jq`
+
+#### Der ArangoDB-Healthcheck schlägt mit der Meldung „ArangoError: not connected“ fehl.
+
+Dies liegt meist an einem falschen Passwort bei der Verbindungsherstellung über „arangosh“, das im Healthcheck verwendet
+wurde. Das falsche Passwort könnte folgende Ursachen haben:
+
+- [Der Container verwendet weiterhin das alte Passwort des wiederhergestellten Volumes](https://github.com/arangodb/arangodb/issues/2712#issuecomment-314949756)

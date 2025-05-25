@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
@@ -31,6 +30,11 @@ const config: Config = {
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
+
+  i18n: {
+      defaultLocale: 'en',
+      locales: ['en', 'de'],
+  },
 
   presets: [
     [
@@ -57,6 +61,10 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
+        {
+            type: 'localeDropdown',
+            position: 'left',
+        },
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',

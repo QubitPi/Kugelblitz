@@ -6,6 +6,12 @@ Kugelblitz
 [![Docker Hub][Docker Pulls Badge]][Docker Hub URL]
 [![Apache License Badge]][Apache License, Version 2.0]
 
+> [!TIP]
+>
+> Read this in other languages:
+>
+> - [Deutsch](README.de.md)
+
 __Kugelblitz__ is a Spring Boot application template that lets us set up REST JSON API webservice with minimal
 effort. Its goal is to swiftly productionize a persistence webservice with all the elements of modern microservices such
 as CI/CD support.

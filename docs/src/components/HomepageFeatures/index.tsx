@@ -16,6 +16,8 @@
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
+import Translate from '@docusaurus/Translate';
+import Link from '@docusaurus/Link';
 
 type FeatureItem = {
   title: string;
@@ -31,8 +33,19 @@ const FeatureList: FeatureItem[] = [
     id: 'not-used',
     description: (
         <>
-          The API documentation is powered by <a href="https://swagger.io/">Swagger</a>, providing comprehensive and
-          interactive API documentation.
+          <Translate
+            id="homepage.feature.swagger"
+            values={{
+              swagger: (
+                  <Link to="https://swagger.io/">
+                    <Translate id="homepage.feature.swagger.link">
+                      Swagger
+                    </Translate>
+                  </Link>
+              ),
+            }}>
+            {'The API documentation is powered by {swagger}, providing comprehensive and interactive API documentation.'}
+          </Translate>
         </>
     ),
   },
@@ -43,9 +56,19 @@ const FeatureList: FeatureItem[] = [
     id: 'graph-icon',
     description: (
         <>
-          Designed for Knowledge Graph and connection inference, Kugelblitz has first-class support
-          for <a href="https://arango.qubitpi.org/stable/">ArangoDB</a> as a back-end and flexible pipeline-style
-          architecture which handles nearly any graph database for data storage
+          <Translate
+            id="homepage.feature.arango"
+            values={{
+              arango: (
+                  <Link to="https://arango.qubitpi.org/stable/">
+                    <Translate id="homepage.feature.arango.link">
+                      ArangoDB
+                    </Translate>
+                  </Link>
+              ),
+            }}>
+            {'Designed for Knowledge Graph and connection inference, Kugelblitz has first-class support for {arango} as a back-end and flexible pipeline-style architecture which handles nearly any graph database for data storage'}
+          </Translate>
         </>
     ),
   },
@@ -57,10 +80,26 @@ const FeatureList: FeatureItem[] = [
     id: 'not-used',
     description: (
         <>
-          Kugelblitz is 100% open source and available on <a href="https://github.com/QubitPi/Kugelblitz">Github</a>.
-          Released
-          under the commercial-friendly
-          <a href="http://www.apache.org/licenses/LICENSE-2.0.html"> Apache License, Version 2.0.</a>
+          <Translate
+            id="homepage.feature.opensource"
+            values={{
+              github: (
+                  <Link to="https://github.com/QubitPi/Kugelblitz">
+                    <Translate id="homepage.feature.opensource.github">
+                      Github
+                    </Translate>
+                  </Link>
+              ),
+              apache: (
+                  <Link to="http://www.apache.org/licenses/LICENSE-2.0.html">
+                    <Translate id="homepage.feature.opensource.apache">
+                      Apache License, Version 2.0
+                    </Translate>
+                  </Link>
+              ),
+            }}>
+            {'Kugelblitz is 100% open source and available on {github}. Released under the commercial-friendly {apache}.'}
+          </Translate>
         </>
     ),
   },

@@ -17,6 +17,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import Translate from '@docusaurus/Translate';
 
 import styles from './index.module.css';
 import ParticleBackground from "@site/src/components/ParticleBackground";
@@ -35,14 +36,29 @@ function HomepageHeader() {
             <img src="img/logo.svg" alt="Kugelblitz Logo" width={200}/>
           </h1>
           <p className="hero__subtitle" style={{ color: "white" }}>
-            Webservice with first-class support for <b><em>Graph Database</em></b>
+            <Translate
+              id="homepage.tagline"
+              values={{
+                graphDatabase: (
+                    <b><em>
+                      <Translate id="homepage.tagline.graphDatabase">
+                        Graph Database
+                      </Translate>
+                    </em></b>
+                  ),
+                }}
+            >
+              {'Webservice with first-class support for {graphDatabase}'}
+            </Translate>
           </p>
           <div className={styles.buttons}>
             <Link
                 className="button button--secondary button--lg"
                 to="/docs/intro"
             >
-              Get Started
+              <Translate>
+                Get Started
+              </Translate>
             </Link>
             <div
                 className="button button--secondary button--lg"

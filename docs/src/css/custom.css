@@ -13,16 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
 @import "font.css";
 
-/* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #ff653a;
   --ifm-color-primary-dark: #ff6835;
