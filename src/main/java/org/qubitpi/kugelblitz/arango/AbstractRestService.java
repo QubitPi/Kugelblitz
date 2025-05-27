@@ -36,7 +36,7 @@ import java.util.Map;
 /**
  * {@link AbstractRestService} abstracts away the ArangoDB REST API request implementation.
  * <p>
- * See https://arango.qubitpi.org/stable/develop/http-api/ for more information.
+ * See <a href="https://arango.qubitpi.org/stable/develop/http-api/">ArangoDB documentation</a> for more information.
  */
 abstract class AbstractRestService {
 
@@ -64,6 +64,15 @@ abstract class AbstractRestService {
      * @param uri  The URL of the GET endpoint
      *
      * @return the data of a successful API request
+     *
+     * @throws IllegalStateException if one of the following error occurs
+     * <ul>
+     *     <li> an I/ O error occurs when sending or receiving the GET request
+     *     <li> the operation is interrupted
+     *     <li> the GET request returns a non-200 status code
+     *     <li> the GET fails with an non-JSON response
+     * </ul>
+     * The runtime error message will reflect the nature of the exception
      */
     protected JsonNode get(final String uri) {
         HttpResponse<String> response = null;
@@ -97,10 +106,10 @@ abstract class AbstractRestService {
             return JSON_MAPPER.readTree(response.body());
         } catch (final JsonProcessingException exception) {
             LOG.error(
-                    String.format("Jackson deserialization error on GET reponse: %s", exception.getMessage()),
+                    String.format("Jackson deserialization error on GET response: %s", exception.getMessage()),
                     exception
             );
-            throw new RuntimeException(FAILED_REQUEST_MESSAGE, exception);
+            throw new IllegalStateException(FAILED_REQUEST_MESSAGE, exception);
         }
     }
 
@@ -115,6 +124,15 @@ abstract class AbstractRestService {
      * @param headers  A map of headers with key representing the header key and value being the header value
      *
      * @return The POST response body represented by a {@link JsonNode}
+     *
+     * @throws IllegalStateException if one of the following error occurs
+     * <ul>
+     *     <li> an I/ O error occurs when sending or receiving the POST request
+     *     <li> the operation is interrupted
+     *     <li> the POST request against Arango returns an error code
+     *     <li> the POST fails with an non-JSON response
+     * </ul>
+     * The runtime error message will reflect the nature of the exception
      */
     protected static JsonNode post(final String uri, final ObjectNode payload, final Map<String, String> headers) {
         HttpResponse<String> response = null;
@@ -161,14 +179,15 @@ abstract class AbstractRestService {
                     String.format("Jackson deserialization error on POST response: %s", exception.getMessage()),
                     exception
             );
-            throw new RuntimeException(FAILED_REQUEST_MESSAGE, exception);
+            throw new IllegalStateException(FAILED_REQUEST_MESSAGE, exception);
         }
     }
 
     /**
      * Sends an authentication request to Arango auth endpoint and returns a JWT token.
      * <p>
-     * See https://arango.qubitpi.org/stable/develop/http-api/authentication/ for more info
+     * See <a href="https://arango.qubitpi.org/stable/develop/http-api/authentication/">ArangoDB documentation</a> for
+     * more info
      *
      * @return a string representing the JWT token
      */

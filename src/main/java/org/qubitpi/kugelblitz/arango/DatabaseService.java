@@ -40,6 +40,8 @@ class DatabaseService extends AbstractRestService {
      * @param database  The name of the database to check for
      *
      * @return {@code true} if the databases exists or {@code false} otherwise
+     *
+     * @throws IllegalStateException if ArangoDB sends back a non-JSON response
      */
     @SuppressWarnings("unchecked")
     protected boolean databaseExists(final String database) {

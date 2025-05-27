@@ -41,6 +41,8 @@ class CollectionService extends AbstractRestService {
      * @param collection  The name of the collection to check for
      *
      * @return {@code true} if the collection exists or {@code false} otherwise
+     *
+     * @throws IllegalStateException if ArangoDB sends back a non-JSON response
      */
     @SuppressWarnings("unchecked")
     protected boolean collectionExists(final String database, final String collection) {
