@@ -27,7 +27,8 @@ It __is not for__:
 - security aspect, such as Authentication or Authorization
 - any business layer logics
 
-For this reason, Kugelblitz is suitable for a microservice architecture.
+For this reason, Kugelblitz is suitable for a microservice architecture. More details about the design of Kugelblitz
+can be found at [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/QubitPi/Kugelblitz)
 
 ✨ Features
 -----------
