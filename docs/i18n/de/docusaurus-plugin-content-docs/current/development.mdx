@@ -67,6 +67,21 @@ es unterstützt außerdem
 [das Ausführen von Template-Webdiensten in Docker](https://github.com/QubitPi/Kugelblitz/blob/master/src/test/java/org/qubitpi/kugelblitz/DockerComposeIT.java).
 Docker kann mit [dieser Anleitung](https://docker.qubitpi.org/desktop/setup/install/mac-install/) installiert werden.
 
+### Code Style Checker installieren
+
+Kugelblitz verwendet [pre-commit](https://pre-commit.com/), das manchmal wenig aussagekräftige Meldungen ausgibt, wenn
+die Prüfung in Kugelblitzs CI/CD fehlschlägt. Um sicherzustellen, dass Pre-Commit erfolgreich ist, führen Sie es zunächst lokal aus:
+
+```console
+pip3 install pre-commit
+```
+
+Führen Sie anschließend die Pre-Commit-Prüfung aus, die alle Probleme auf einmal behebt:
+
+```console
+pre-commit run -a
+```
+
 Quellcode abrufen
 -------------------
 
