@@ -79,7 +79,7 @@ Dokumente durch Verlinken interaktiv gestalten
 
 - Referenzen sollten explizit angegeben werden. Die folgenden Bedeutungen sind in GitHub-Markdown identisch:
 
-  ```
+  ```markdown
   [Beispiellink][Beispiellink] <-- Bevorzugt
   [Beispiellink]
   [Beispiellink][]

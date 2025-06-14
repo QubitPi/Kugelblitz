@@ -1,5 +1,11 @@
 Kugelblitz Documentation
-=======================
+========================
+
+> [!TIP]
+>
+> Read this in other languages:
+>
+> - [Deutsch](./README.de.md)
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
@@ -30,20 +36,17 @@ yarn build
 This command generates static content into the `build` directory and can be served using any static contents hosting
 service.
 
-Deployment
-----------
+Internationalization
+--------------------
 
-Using SSH:
-
-```console
-USE_SSH=true yarn deploy
-```
-
-Not using SSH:
+When Docusaurus meta config has been updated, its corresponding i18n can be
+[auto detected and configured](https://docusaurus.qubitpi.org/docs/i18n/tutorial#translate-plugin-data) with
 
 ```console
-GIT_USER=<Your GitHub username> yarn deploy
+yarn write-translations --locale de
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the
-`gh-pages` branch.
+> [!IMPORTANT]
+>
+> One would still need to translate the content manually, such as translating the
+> [auto generated `message` fields](i18n/de/docusaurus-plugin-content-docs/current.json)
