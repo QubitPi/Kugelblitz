@@ -75,7 +75,7 @@ Make Documents Interactive by Linking to Other Things
 
 - References should be specified explicitly. The following all mean the same in GitHub flavored Markdown:
 
-  ```
+  ```markdown
   [example link][example link] <-- Preferred
   [example link]
   [example link][]
