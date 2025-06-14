@@ -2,5 +2,9 @@
   "version.label": {
     "message": "Nächste",
     "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.contributing": {
+    "message": "Beitragen",
+    "description": "The label for category contributing in sidebar tutorialSidebar"
   }
 }

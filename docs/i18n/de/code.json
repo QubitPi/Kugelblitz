@@ -1,33 +1,33 @@
 {
   "Get Started": {
-      "message": "Erste Schritte"
+    "message": "Erste Schritte"
   },
   "homepage.tagline": {
-      "message": "Webservice mit erstklassigem Support für {graphDatabase}"
+    "message": "Webservice mit erstklassigem Support für {graphDatabase}"
   },
   "homepage.tagline.graphDatabase": {
-      "message": "Graphdatenbank"
+    "message": "Graphdatenbank"
   },
   "homepage.feature.swagger": {
-      "message": "Die API-Dokumentation wird von {swagger} bereitgestellt und bietet eine umfassende und interaktive API-Dokumentation."
+    "message": "Die API-Dokumentation wird von {swagger} bereitgestellt und bietet eine umfassende und interaktive API-Dokumentation."
   },
   "homepage.feature.swagger.link": {
-      "message": "Swagger"
+    "message": "Swagger"
   },
   "homepage.feature.arango": {
-      "message": "Kugelblitz wurde für Knowledge Graph und Verbindungsinferenz entwickelt und bietet erstklassige Unterstützung für {arango} als Back-End und flexible Pipeline-Architektur, die nahezu jede Graphdatenbank zur Datenspeicherung verarbeitet."
+    "message": "Kugelblitz wurde für Knowledge Graph und Verbindungsinferenz entwickelt und bietet erstklassige Unterstützung für {arango} als Back-End und flexible Pipeline-Architektur, die nahezu jede Graphdatenbank zur Datenspeicherung verarbeitet."
   },
   "homepage.feature.arango.link": {
-      "message": "Swagger"
+    "message": "Swagger"
   },
   "homepage.feature.opensource": {
-      "message": "Kugelblitz ist 100 % Open Source und auf {github} verfügbar. Veröffentlicht unter dem kommerziell nutzbaren {apache}."
+    "message": "Kugelblitz ist 100 % Open Source und auf {github} verfügbar. Veröffentlicht unter dem kommerziell nutzbaren {apache}."
   },
   "homepage.feature.opensource.github": {
-      "message": "GitHub"
+    "message": "GitHub"
   },
   "homepage.feature.opensource.apache": {
-      "message": "Apache-Lizenz, Version 2.0"
+    "message": "Apache-Lizenz, Version 2.0"
   },
   "theme.ErrorPageContent.title": {
     "message": "Die Seite ist abgestürzt.",
