@@ -1,4 +1,5 @@
 {
-  "label": "Foo",
+  "label": "Contributing",
+  "type": "subcategory",
   "position": 3
 }
