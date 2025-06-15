@@ -29,8 +29,6 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'Open API',
     Svg: require('@site/static/img/openapi-logo.svg').default,
-    scale: 0.7,
-    id: 'not-used',
     description: (
         <>
           <Translate
@@ -52,8 +50,6 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'Graph Data',
     Svg: require('@site/static/img/graph.svg').default,
-    scale: 1,
-    id: 'graph-icon',
     description: (
         <>
           <Translate
@@ -76,8 +72,6 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'Open Source',
     Svg: require('@site/static/img/apache.svg').default,
-    scale: 0.7,
-    id: 'not-used',
     description: (
         <>
           <Translate
