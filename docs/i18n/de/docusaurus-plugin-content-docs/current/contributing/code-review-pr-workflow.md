@@ -138,8 +138,8 @@ so schnell wie möglich behoben werden. Daher sollten Fehlerbehebungs-PRs höher
 ### Breaking Change
 
 Die Änderungen im PR sind nicht abwärtskompatibel mit kundenorientierten APIs. Diese APIs sind derzeit nicht
-dokumentiert, werden aber hier verlinkt, sobald sie dokumentiert sind. Die Arbeitsliste der kundenorientierten APIs
-umfasst derzeit:
+dokumentiert, werden aber hier verlinkt, sobald sie dokumentiert sind. In der Zwischenzeit umfasst die Arbeitsliste der
+kundenorientierten APIs:
 
 - Antwortformate (inkl. Header)
 - Anfrageformate (inkl. URLs, Abfrageparameter und Header)

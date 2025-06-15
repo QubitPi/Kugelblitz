@@ -48,7 +48,7 @@ function HomepageHeader() {
                   ),
                 }}
             >
-              {'Webservice with first-class support for {graphDatabase}'}
+              {'Webservice with First-Class Support for {graphDatabase} as both GraphRAG and Relational Datastore'}
             </Translate>
           </p>
           <div className={styles.buttons}>

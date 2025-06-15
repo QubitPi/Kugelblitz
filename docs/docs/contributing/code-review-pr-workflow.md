@@ -131,7 +131,7 @@ possible, so `Breakfix` PRs should be given higher priority than other PRs.
 ### Breaking Change
 
 The changes in the PR are backwards-incompatible with customer-facing APIs. These APIs are not currently documented,
-but once they are, they will be linked here. In the mean time, the working list of customer-facing APIs include:
+but once they are, they will be linked here. In the meantime, the working list of customer-facing APIs include:
 
 - Response Formats (including headers)
 - Request Formats (including URLs, query string parameters, and headers)
