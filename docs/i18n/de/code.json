@@ -3,7 +3,7 @@
     "message": "Erste Schritte"
   },
   "homepage.tagline": {
-    "message": "Webservice mit erstklassigem Support für {graphDatabase}"
+    "message": "Webservice mit erstklassiger Unterstützung für {graphDatabase} als GraphRAG und relationaler Datenspeicher"
   },
   "homepage.tagline.graphDatabase": {
     "message": "Graphdatenbank"
