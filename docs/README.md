@@ -7,7 +7,7 @@ Kugelblitz Documentation
 >
 > - [Deutsch](./README.de.md)
 
-Another great way to contribute to Jetty is to help us write and maintain our documentation.
+Another great way to contribute to Kugelblitz is to help us write and maintain our documentation.
 
 Kugelblitz follows a ["docs as code"](https://writethedocs.qubitpi.org/en/latest/guide/docs-as-code/) philosophy,
 meaning we use the same tools to maintain and CI/CD our code and docs. As such, the docs are maintained directly within

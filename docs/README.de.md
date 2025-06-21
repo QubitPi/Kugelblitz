@@ -1,8 +1,8 @@
 Kugelblitz-Dokumentation
 ========================
 
-Eine weitere großartige Möglichkeit, Jetty zu unterstützen, ist die Unterstützung bei der Erstellung und Pflege unserer
-Dokumentation.
+Eine weitere großartige Möglichkeit, Kugelblitz zu unterstützen, ist die Unterstützung bei der Erstellung und Pflege
+unserer Dokumentation.
 
 Kugelblitz verfolgt die Philosophie
 [„Dokumente als Code“](https://writethedocs.qubitpi.org/en/latest/guide/docs-as-code/). Das bedeutet, dass wir dieselben
