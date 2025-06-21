@@ -19,7 +19,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Kugelblitz',
-  tagline: 'Webservice with first-class support for Graph Database',
+  tagline: 'Webservice with First-Class Support for Graph Database as both GraphRAG and Relational Datastore',
   favicon: 'img/favicon.ico',
 
   url: 'https://kugelblitz.qubitpi.org',
@@ -28,8 +28,8 @@ const config: Config = {
   organizationName: 'QubitPi',
   projectName: 'Kugelblitz',
 
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'throw',
 
   i18n: {
       defaultLocale: 'en',
