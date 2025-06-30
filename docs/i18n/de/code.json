@@ -3,10 +3,13 @@
     "message": "Erste Schritte"
   },
   "homepage.tagline": {
-    "message": "Webservice mit erstklassiger Unterstützung für {graphDatabase} als GraphRAG und relationaler Datenspeicher"
+    "message": "Webservice mit erstklassiger Unterstützung für {graphDatabase} als {GraphRAG} und relationaler Datenspeicher"
   },
   "homepage.tagline.graphDatabase": {
     "message": "Graphdatenbank"
+  },
+  "homepage.tagline.graphrag": {
+    "message": "GraphRAG"
   },
   "homepage.feature.swagger": {
     "message": "Die API-Dokumentation wird von {swagger} bereitgestellt und bietet eine umfassende und interaktive API-Dokumentation."

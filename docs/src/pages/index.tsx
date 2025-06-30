@@ -45,10 +45,17 @@ function HomepageHeader() {
                         Graph Database
                       </Translate>
                     </em></b>
-                  ),
+                ),
+                GraphRAG: (
+                    <Link to="https://learn-graphrag.qubitpi.org/">
+                      <Translate id="homepage.tagline.graphrag">
+                        GraphRAG
+                      </Translate>
+                    </Link>
+                )
                 }}
             >
-              {'Webservice with First-Class Support for {graphDatabase} as both GraphRAG and Relational Datastore'}
+              {'Webservice with First-Class Support for {graphDatabase} as both {GraphRAG} and Relational Datastore'}
             </Translate>
           </p>
           <div className={styles.buttons}>
