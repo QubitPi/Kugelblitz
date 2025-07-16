@@ -48,7 +48,7 @@ License
 
 The use and distribution terms for [Kugelblitz]() are covered by the [Apache License, Version 2.0].
 
-[Apache License Badge]: https://img.shields.io/badge/Apache%202.0-FE5D26.svg?style=for-the-badge&logo=Apache&logoColor=white
+[Apache License Badge]: https://img.shields.io/github/license/QubitPi/Antiqua?style=for-the-badge&logo=Apache&logoColor=white&labelColor=FF7777&color=00B8A9
 [Apache License, Version 2.0]: https://www.apache.org/licenses/LICENSE-2.0
 [API Doc Badge]: https://img.shields.io/badge/Open%20API-Swagger-75ce9f.svg?style=for-the-badge&logo=openapiinitiative&logoColor=white&labelColor=01a66f
 [API Doc URL]: https://springdoc.org/
@@ -58,7 +58,7 @@ The use and distribution terms for [Kugelblitz]() are covered by the [Apache Lic
 [Docker Pulls Badge]: https://img.shields.io/docker/pulls/jack20191124/kugelblitz?style=for-the-badge&logo=docker&logoColor=white&labelColor=5BBCFF&color=7EA1FF
 [Docker Hub URL]: https://hub.docker.com/r/jack20191124/kugelblitz
 
-[GitHub Workflow Status]: https://img.shields.io/github/actions/workflow/status/QubitPi/Kugelblitz/ci-cd.yaml?branch=master&logo=github&style=for-the-badge&label=CI/CD&labelColor=2088FF
+[GitHub Workflow Status]: https://img.shields.io/github/actions/workflow/status/QubitPi/Kugelblitz/ci-cd.yaml?branch=master&logo=github&style=for-the-badge&label=CI/CD&labelColor=2088FF&color=00BD56
 [GitHub Workflow URL]: https://github.com/QubitPi/Kugelblitz/actions/workflows/ci-cd.yaml
 
 [Java Version Badge]: https://img.shields.io/badge/Java-17-957FEF?style=for-the-badge&logo=OpenJDK&logoColor=white&labelColor=7161ef

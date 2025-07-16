@@ -101,6 +101,29 @@ IDE's __Editor__ -> __Code Style__ section.
 Please also enable "remove unused imports" by __Editor__ -> __General__ -> __Auto Import__ -> __Optimize Imports on the
 Fly__, which will automatically remove unused imports.
 
+Profiled Database Support
+-------------------------
+
+Since the default persistence database is [ArangoDB](https://arango.qubitpi.org/), any Maven commands is going to assume
+the __exclusive__ dependencies for ArangoDB. What this means is that
+
+- all Maven dependencies and configs of other databases are not included in `mvn` invocations
+- source codes regarding these databases are _not_ compiled
+
+To build Kugelblitz with Neo4J as backing database for example, specify by profiling all `mvn` commands with `neo4j`:
+
+```console
+mvn clean verify -P neo4j
+```
+
+In the example above, we compile and run tests with all Neo4J dependencies and related source codes, and not others.
+
+The available profiles are:
+
+- _default_: ArangoDB. Activated by default
+- `neo4j`: Neo4J Database
+- `javadoc`: For generating Javadoc of all source files of all databases: `mvn clean javadoc:javadoc -P javadoc`
+
 Running Tests
 -------------
 
