@@ -101,6 +101,30 @@ im Stammverzeichnis des Repositorys importiert werden. Die Projekteinstellung er
 Aktivieren Sie außerdem die Option „Nicht verwendete Importe entfernen“ unter __Editor__ -> __General__ -> __Auto
 Import__ -> __Optimize Imports on the Fly__. Dadurch werden nicht verwendete Importe automatisch entfernt.
 
+Unterstützung profilierter Datenbanken
+--------------------------------------
+
+Da die Standard-Persistenzdatenbank [ArangoDB](https://arango.qubitpi.org/) ist, werden für alle Maven-Befehle die
+-_exklusiven__ Abhängigkeiten von ArangoDB vorausgesetzt. Das bedeutet:
+
+- Maven-Abhängigkeiten und Konfigurationen anderer Datenbanken werden nicht in `mvn`-Aufrufen berücksichtigt.
+- Quellcodes dieser Datenbanken werden _nicht_ kompiliert.
+
+Um beispielsweise Kugelblitz mit Neo4J als Basisdatenbank zu erstellen, profilieren Sie alle `mvn`-Befehle mit `neo4j`:
+
+```console
+mvn clean verify -P neo4j
+```
+
+Im obigen Beispiel kompilieren und führen wir Tests mit allen Neo4J-Abhängigkeiten und zugehörigen Quellcodes aus, nicht
+mit anderen.
+
+Die verfügbaren Profile sind:
+
+- _default_: ArangoDB. Standardmäßig aktiviert
+- `neo4j`: Neo4J-Datenbank
+- `javadoc`: Zum Generieren von Javadoc aller Quelldateien aller Datenbanken: `mvn clean javadoc:javadoc -P javadoc`
+
 Tests ausführen
 ---------------
 
