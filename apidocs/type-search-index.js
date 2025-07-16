@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.qubitpi.kugelblitz","l":"Application"},{"p":"org.qubitpi.kugelblitz","l":"SwaggerConfig"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.qubitpi.kugelblitz","l":"Application"},{"p":"org.qubitpi.kugelblitz.neo4j","l":"Graph"},{"p":"org.qubitpi.kugelblitz.neo4j","l":"Link"},{"p":"org.qubitpi.kugelblitz.neo4j","l":"Node"},{"p":"org.qubitpi.kugelblitz","l":"SwaggerConfig"}];updateSearchResults();

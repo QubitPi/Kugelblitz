@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.qubitpi.kugelblitz"},{"l":"org.qubitpi.kugelblitz.arango"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.qubitpi.kugelblitz"},{"l":"org.qubitpi.kugelblitz.arango"},{"l":"org.qubitpi.kugelblitz.neo4j"}];updateSearchResults();
