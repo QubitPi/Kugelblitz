@@ -25,8 +25,8 @@ Lokale Entwicklung
 ------------------
 
 Um die Dokumentation lokal zu erstellen, müssen wir zunächst sicherstellen, dass Node
-[installiert](https://deb.nodesource.com/) ist. Anschließend führen wir den folgenden Befehl aus dem Ordner `docs/` des
-Kugelblitz-Projekts aus:
+[installiert](https://nodesource.com/products/distributions) ist. Anschließend führen wir den folgenden Befehl aus dem
+Ordner `docs/` des Kugelblitz-Projekts aus:
 
 ```console
 yarn
