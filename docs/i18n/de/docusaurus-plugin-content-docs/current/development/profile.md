@@ -37,6 +37,7 @@ die __exklusiven__ Abhängigkeiten und Quelldateien für ArangoDB. Das bedeutet:
 
 :::info [Wichtig]
 
-<img src="https://github.com/QubitPi/QubitPi/blob/master/img/Emilie-taking-notes.png?raw=true" width="70px"/> Geben Sie in allen `mvn`-Befehlen immer das Profil an.
+<img src="https://github.com/QubitPi/QubitPi/blob/master/img/Emilie-taking-notes.png?raw=true" width="70px"/> Geben Sie
+in allen „mvn“-Befehlen immer das Profil an, andernfalls wird standardmäßig das Standardprofil „arango“ verwendet.
 
 :::
