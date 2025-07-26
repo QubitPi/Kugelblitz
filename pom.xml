@@ -259,6 +259,9 @@
                             <includes>
                                 <include>**/org/qubitpi/kugelblitz/arango/**/*IT.*</include>
                             </includes>
+                            <excludes>
+                                <exclude>**/org/qubitpi/kugelblitz/neo4j/**/*IT.*</exclude>
+                            </excludes>
                         </configuration>
                     </plugin>
                 </plugins>

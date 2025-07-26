@@ -41,7 +41,7 @@ import org.testcontainers.utility.DockerImageName;
 @Testcontainers
 @WebMvcTest(Controller.class)
 @Import({DatabaseService.class, CollectionService.class, DocumentService.class})
-public class ArangoControllerIT {
+public class ControllerIT {
 
     private static final ObjectMapper JSON_MAPPER = new ObjectMapper();
 

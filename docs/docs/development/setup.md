@@ -66,9 +66,9 @@ Docker can be installed by following [this instruction](https://docker.qubitpi.o
 Installing Code Style Checker
 -----------------------------
 
-Kugelblitz utilizes [pre-commit](https://pre-commit.com/) which sometimes doesn't give very informative
-messages when its check fails in Kugelblitz's CI/CD. One approach to make sure pre-commit passes is to run it locally
-by installing it first:
+Kugelblitz utilizes [pre-commit](https://pre-commit.com/) which sometimes doesn't give very informative messages when
+its check fails in Kugelblitz's CI/CD. One approach to make sure pre-commit passes is to run it locally by installing it
+first:
 
 ```console
 pip3 install pre-commit

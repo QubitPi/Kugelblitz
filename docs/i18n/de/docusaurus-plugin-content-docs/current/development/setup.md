@@ -68,7 +68,8 @@ Code Style Checker installieren
 -------------------------------
 
 Kugelblitz verwendet [pre-commit](https://pre-commit.com/), das manchmal wenig aussagekräftige Meldungen ausgibt, wenn
-die Prüfung in Kugelblitzs CI/CD fehlschlägt. Um sicherzustellen, dass Pre-Commit erfolgreich ist, führen Sie es zunächst lokal aus:
+die Prüfung in Kugelblitzs CI/CD fehlschlägt. Um sicherzustellen, dass Pre-Commit erfolgreich ist, führen Sie es
+zunächst lokal aus:
 
 ```console
 pip3 install pre-commit
