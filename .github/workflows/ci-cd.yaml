@@ -47,12 +47,22 @@ jobs:
       - uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd #v3.0.1
 
   tests:
-    name: Unit & Integration Tests
+    name: Unit & Integration Tests Backed by ${{ matrix.database.name }}
     needs: pre-commit
     strategy:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest, windows-latest, macos-latest ]
+        database: [
+          {
+            name: ArangoDB,
+            profile: arango
+          },
+          {
+            name: Neo4J,
+            profile: neo4j
+          }
+        ]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout Repository
@@ -65,7 +75,7 @@ jobs:
           java-version: ${{ env.JDK_VERSION }}
           distribution: ${{ env.JDK_DISTRIBUTION }}
       - name: Run unit & integration tests
-        run: mvn -B clean verify
+        run: mvn -B clean verify -P ${{ matrix.database.profile }}
 
   docker-image:
     name: Test Build & Release Docker Image

@@ -6,5 +6,9 @@
   "sidebar.tutorialSidebar.category.Contributing": {
     "message": "Beitragen",
     "description": "The label for category Contributing in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Development": {
+    "message": "Entwicklung",
+    "description": "The label for category Development in sidebar tutorialSidebar"
   }
 }
