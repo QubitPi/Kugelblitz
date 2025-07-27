@@ -30,7 +30,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
- * A JSON-serializable object representation of a directed link of knowledge graph in bertok.
+ * A JSON-serializable object representation of a directed link of knowledge graph in Kugelblitz.
  * <p>
  * A {@link Link} has 4 public attributes:
  * <ol>
@@ -80,7 +80,7 @@ public class Link {
     }
 
     /**
-     * Converts a Neo4J API relationship to a bertok {@link Link}.
+     * Converts a Neo4J API relationship to a Kugelblitz {@link Link}.
      * <p>
      * The Neo4J relationship must contain a property called "name", otherwise an unchecked exception is thrown. The
      * {@link Relationship#startNodeElementId()} would be the {@link Node#getId() source node ID}; the
@@ -100,7 +100,7 @@ public class Link {
             LOG.error("Neo4J relationship does not contain '{}' attribute: {}", LABEL_ATTRIBUTE, relationship.asMap());
             throw new IllegalStateException(
                     "There seems to be a data format mismatch between Wilhelm webservice and Neo4J database. " +
-                            "Please file an issue at https://github.com/QubitPi/bertok/issues for a fix"
+                            "Please file an issue at https://github.com/QubitPi/Kugelblitz/issues for a fix"
             );
         }
 

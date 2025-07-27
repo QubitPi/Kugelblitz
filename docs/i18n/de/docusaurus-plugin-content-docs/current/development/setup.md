@@ -1,16 +1,12 @@
 ---
-sidebar_position: 2
-title: Entwicklung
+sidebar_position: 1
+title: Vorbereitung für die lokale Entwicklung
 ---
 
-Die folgende Anleitung unterstützt Entwickler, die den Kugelblitz pflegen oder ändern möchten.
+Dieser Abschnitt beschreibt die einmalige Einrichtung für die Entwicklung von Kugelblitz.
 
-Vorbereitung für die lokale Entwicklung
+Java & Maven installieren (auf dem Mac)
 ---------------------------------------
-
-Dieser Abschnitt beschreibt die einmalige Einrichtung für die Entwicklung von FastWS.
-
-### Java & Maven installieren (auf dem Mac)
 
 ```bash
 brew update
@@ -59,7 +55,8 @@ OpenJDK Runtime Environment (Build 17.0.10+9)
 OpenJDK 64-Bit-Server-VM (Build 17.0.10+9, gemischter Modus)
 ```
 
-### Docker Engine installieren
+Docker Engine installieren
+--------------------------
 
 Kugelblitz bietet
 [Docker-basierte Integrationstests](https://github.com/QubitPi/Kugelblitz/blob/master/src/test/java/org/qubitpi/kugelblitz/arango/ArangoControllerIT.java);
@@ -67,7 +64,8 @@ es unterstützt außerdem
 [das Ausführen von Template-Webdiensten in Docker](https://github.com/QubitPi/Kugelblitz/blob/master/src/test/java/org/qubitpi/kugelblitz/DockerComposeIT.java).
 Docker kann mit [dieser Anleitung](https://docker.qubitpi.org/desktop/setup/install/mac-install/) installiert werden.
 
-### Code Style Checker installieren
+Code Style Checker installieren
+-------------------------------
 
 Kugelblitz verwendet [pre-commit](https://pre-commit.com/), das manchmal wenig aussagekräftige Meldungen ausgibt, wenn
 die Prüfung in Kugelblitzs CI/CD fehlschlägt. Um sicherzustellen, dass Pre-Commit erfolgreich ist, führen Sie es zunächst lokal aus:
@@ -101,96 +99,9 @@ im Stammverzeichnis des Repositorys importiert werden. Die Projekteinstellung er
 Aktivieren Sie außerdem die Option „Nicht verwendete Importe entfernen“ unter __Editor__ -> __General__ -> __Auto
 Import__ -> __Optimize Imports on the Fly__. Dadurch werden nicht verwendete Importe automatisch entfernt.
 
-Unterstützung profilierter Datenbanken
---------------------------------------
+#### Fehlerbehebung
 
-Da die Standard-Persistenzdatenbank [ArangoDB](https://arango.qubitpi.org/) ist, werden für alle Maven-Befehle die
--_exklusiven__ Abhängigkeiten von ArangoDB vorausgesetzt. Das bedeutet:
-
-- Maven-Abhängigkeiten und Konfigurationen anderer Datenbanken werden nicht in `mvn`-Aufrufen berücksichtigt.
-- Quellcodes dieser Datenbanken werden _nicht_ kompiliert.
-
-Um beispielsweise Kugelblitz mit Neo4J als Basisdatenbank zu erstellen, profilieren Sie alle `mvn`-Befehle mit `neo4j`:
-
-```console
-mvn clean verify -P neo4j
-```
-
-Im obigen Beispiel kompilieren und führen wir Tests mit allen Neo4J-Abhängigkeiten und zugehörigen Quellcodes aus, nicht
-mit anderen.
-
-Die verfügbaren Profile sind:
-
-- _default_: ArangoDB. Standardmäßig aktiviert
-- `neo4j`: Neo4J-Datenbank
-- `javadoc`: Zum Generieren von Javadoc aller Quelldateien aller Datenbanken: `mvn clean javadoc:javadoc -P javadoc`
-
-Tests ausführen
----------------
-
-Die folgenden Befehle führen sowohl Unit- als auch Integrationstests aus:
-
-```bash
-mvn clean verify
-```
-
-ArangoDB
---------
-
-Arango-Datenbank starten
-
-```console
-docker run -d -p 8529:8529 \
--e ARANGO_ROOT_PASSWORD=root \
--v arango-data:/var/lib/arangodb3 \
--v arango-app:/var/lib/arangodb3-apps \
---name arangodb --platform linux/arm64/v8 arangodb
-```
-
-Die ArangoDB-Webkonsole sollte unter http://localhost:8529 mit den Benutzernamen `root` und dem Passwort `root`
-erreichbar sein.
-
-:::tip
-
-Weitere Informationen zur Navigation in der Arango-Weboberfläche finden Sie in der
-[ArangoDB-Dokumentation](https://arango.qubitpi.org/stable/components/web-interface/)
-
-:::
-
-```console
-git clone git@github.com:QubitPi/Kugelblitz.git
-cd Kugelblitz
-mvn clean package
-
-export KUGELBLITZ_ARANGO_HOSTS=http://localhost:8529
-export KUGELBLITZ_ARANGO_USERNAME=root
-export KUGELBLITZ_ARANGO_PASSWORD=root
-
-java -jar target/kugelblitz-0.0.1-SNAPSHOT.jar
-```
-
-Beachten Sie, dass `KUGELBLITZ_ARANGO_USERNAME` und `KUGELBLITZ_ARANGO_PASSWORD` der obigen
-ArandoDB-Docker-Konfiguration entsprechen. Außerdem muss `KUGELBLITZ_ARANGO_HOSTS` entweder mit
-"__http://__" oder "__https://__" beginnen.
-
-Der Standardport ist 8080.
-
-- Healthcheck: http://localhost:8080/actuator/health
-- Swagger-UI: http://localhost:8080/swagger-ui/index.html
-- Entität erstellen:
-
-```console
-curl --location 'localhost:8080/arango/createDocument/mydatabase/mycollection' --header 'Content-Type: application/json' --data '{
-"myfield": "myvalue"
-}' -v
-```
-
-Fehlerbehebung
---------------
-
-### IntelliJ
-
-#### IntelliJ kann Ressourcendatei nicht lesen
+##### IntelliJ kann Ressourcendatei nicht lesen
 
 Bei Unit-Tests in IntelliJ tritt manchmal die Fehlermeldung „Eine Ressourcendatei kann nicht gefunden werden“ auf. Wir
 wissen jedoch, dass der Pfad korrekt ist. In diesem Fall handelt es sich lediglich um ein IntelliJ-Problem. Dieses lässt
@@ -198,7 +109,7 @@ sich lösen, indem die Ressourcen explizit geladen werden. Geben Sie IntelliJ an
 
 ![Fehler beim Laden von intelliJ-find-resource.png](img/intelliJ-find-resource.png)
 
-#### Tabulatorbreite
+##### Tabulatorbreite
 
 Wir verwenden vier Leerzeichen als Tabulator. Dies kann unter __Code Style__ -> __Java__ -> __Tabs and Indents__ mit den
 folgenden Einstellungen konfiguriert werden:

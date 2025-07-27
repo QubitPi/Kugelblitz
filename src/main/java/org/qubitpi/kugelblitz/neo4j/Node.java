@@ -29,7 +29,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
- * A JSON-serializable object representation of a knowledge graph node in bertok.
+ * A JSON-serializable object representation of a knowledge graph node in Kugelblitz.
  * <p>
  * A {@link Node} has 3 public attributes:
  * <ol>
@@ -70,7 +70,7 @@ public class Node {
     }
 
     /**
-     * Converts a Neo4J API node to a bertok {@link Node}.
+     * Converts a Neo4J API node to a Kugelblitz {@link Node}.
      * <p>
      * The Neo4J node must contain a property called "name", otherwise an unchecked exception is thrown. The
      * {@link org.neo4j.driver.types.Node#elementId()} would be the {@link #getId() ID of this node}; the "name"
@@ -89,7 +89,7 @@ public class Node {
             LOG.error("Neo4J node does not contain '{}' attribute: {}", LABEL_ATTRIBUTE, node.asMap());
             throw new IllegalStateException(
                     "There seems to be a data format mismatch between Wilhelm webservice and Neo4J database. " +
-                            "Please file an issue at https://github.com/QubitPi/bertok/issues for a fix"
+                            "Please file an issue at https://github.com/QubitPi/Kugelblitz/issues for a fix"
             );
         }
 
