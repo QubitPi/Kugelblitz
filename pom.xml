@@ -35,6 +35,7 @@
     <properties>
         <java.version>17</java.version>
         <groovy.version>4.0.24</groovy.version>
+        <!-- Keep the relevant versions in sync to ensure consistent behavior and avoid potential bugs or incompatibilities. -->
         <surefire-failsafe.version>3.5.3</surefire-failsafe.version>
     </properties>
 
