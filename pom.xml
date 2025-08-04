@@ -35,6 +35,8 @@
     <properties>
         <java.version>17</java.version>
         <groovy.version>4.0.24</groovy.version>
+        <!-- Keep the relevant versions in sync to ensure consistent behavior and avoid potential bugs or incompatibilities. -->
+        <surefire-failsafe.version>3.5.3</surefire-failsafe.version>
     </properties>
 
     <dependencyManagement>
@@ -181,7 +183,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
+                <version>${surefire-failsafe.version}</version>
                 <configuration>
                     <systemPropertyVariables>
                         <java.awt.headless>true</java.awt.headless>
@@ -194,17 +196,12 @@
                     </excludes>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-report-plugin</artifactId>
-                <version>3.0.0-M5</version>
-            </plugin>
 
             <!-- Integration Tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.0.0-M4</version>
+                <version>${surefire-failsafe.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -298,9 +295,6 @@
                             <includes>
                                 <include>**/org/qubitpi/kugelblitz/arango/**/*IT.*</include>
                             </includes>
-                            <excludes>
-                                <exclude>**/org/qubitpi/kugelblitz/neo4j/**/*IT.*</exclude>
-                            </excludes>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -361,9 +355,6 @@
                             <includes>
                                 <include>**/org/qubitpi/kugelblitz/neo4j/**/*IT.*</include>
                             </includes>
-                            <excludes>
-                                <exclude>**/org/qubitpi/kugelblitz/arango/**/*IT.*</exclude>
-                            </excludes>
                         </configuration>
                     </plugin>
                 </plugins>
