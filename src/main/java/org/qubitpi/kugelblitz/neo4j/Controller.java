@@ -62,17 +62,17 @@ class Controller {
      * This is bad for large sub-graph expand because it will exhaust memories allocated for the query in database. This
      * is good for small-subgraph expand when WS and database are far away from each other.
      *
-     * @param value  The node to expand that have the {@link Node#LABEL_ATTRIBUTE} equal to the specified value
+     * @param labelValue  The node to expand that have the {@link Node#LABEL_ATTRIBUTE} equal to the specified value
      * @param maxHops  The max length of expanded path. Use "-1" for unlimitedly long path.
      *
      * @return a JSON representation of the expanded sub-graph. The format of the JSON would be
      */
-    @GetMapping(value = "/expandApoc/{value}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/expandApoc/{labelValue}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Graph expandApoc(
-            @PathVariable(value = "value", required = true) final String value,
+            @PathVariable("labelValue") final String labelValue,
             @NotNull @RequestParam(required = false, defaultValue = "-1") final String maxHops
     ) {
-        LOG.info("apoc expanding '{}' with max hops of {}", value, maxHops);
+        LOG.info("apoc expanding '{}' with max hops of {}", labelValue, maxHops);
 
         final String query = String.format(
                 """
@@ -83,7 +83,7 @@ class Controller {
                         ORDER BY hops;
                 """,
                 Node.LABEL_ATTRIBUTE,
-                value.replace("'", "\\'"),
+                labelValue.replace("'", "\\'"),
                 maxHops
         );
 
