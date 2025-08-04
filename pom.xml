@@ -34,6 +34,7 @@
 
     <properties>
         <java.version>17</java.version>
+        <groovy.version>4.0.24</groovy.version>
     </properties>
 
     <dependencyManagement>
@@ -99,7 +100,7 @@
         <dependency>
             <groupId>org.apache.groovy</groupId>
             <artifactId>groovy</artifactId>
-            <version>4.0.6</version>
+            <version>${groovy.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency> <!-- Enable mocking of non-interface types -->
@@ -151,6 +152,29 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <!-- Mandatory plugins for using Spock -->
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>4.2.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>compileTests</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.groovy</groupId>
+                        <artifactId>groovy-all</artifactId>
+                        <version>${groovy.version}</version>
+                        <type>pom</type>
+                    </dependency>
+                </dependencies>
             </plugin>
 
             <!-- Unit Tests -->
@@ -237,6 +261,20 @@
                             <excludes>
                                 <exclude>**/neo4j/*</exclude>
                             </excludes>
+                            <testExcludes>
+                                <testExclude>**/neo4j/*</testExclude>
+                            </testExcludes>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.gmavenplus</groupId>
+                        <artifactId>gmavenplus-plugin</artifactId>
+                        <configuration combine.self="append">
+                            <testSources>
+                                <testSource>
+                                    <directory>${project.basedir}/src/test/groovy/org/qubitpi/kugelblitz/arango</directory>
+                                </testSource>
+                            </testSources>
                         </configuration>
                     </plugin>
 
@@ -252,6 +290,7 @@
                             </excludes>
                         </configuration>
                     </plugin>
+
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
@@ -259,6 +298,9 @@
                             <includes>
                                 <include>**/org/qubitpi/kugelblitz/arango/**/*IT.*</include>
                             </includes>
+                            <excludes>
+                                <exclude>**/org/qubitpi/kugelblitz/neo4j/**/*IT.*</exclude>
+                            </excludes>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -277,6 +319,30 @@
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <configuration combine.self="override">
+                            <excludes>
+                                <exclude>**/arango/*</exclude>
+                            </excludes>
+                            <testExcludes>
+                                <testExclude>**/arango/*</testExclude>
+                            </testExcludes>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.gmavenplus</groupId>
+                        <artifactId>gmavenplus-plugin</artifactId>
+                        <configuration combine.self="append">
+                            <testSources>
+                                <testSource>
+                                    <directory>${project.basedir}/src/test/groovy/org/qubitpi/kugelblitz/neo4j</directory>
+                                </testSource>
+                            </testSources>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
                         <configuration combine.self="append">
                             <includes>
@@ -287,6 +353,7 @@
                             </excludes>
                         </configuration>
                     </plugin>
+
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
@@ -294,6 +361,9 @@
                             <includes>
                                 <include>**/org/qubitpi/kugelblitz/neo4j/**/*IT.*</include>
                             </includes>
+                            <excludes>
+                                <exclude>**/org/qubitpi/kugelblitz/arango/**/*IT.*</exclude>
+                            </excludes>
                         </configuration>
                     </plugin>
                 </plugins>
