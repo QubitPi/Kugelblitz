@@ -98,12 +98,11 @@ jobs:
         run: mvn -B clean test -P ${{ matrix.database.profile }}
 
   integration-tests:
-    name: Integration Tests Backed by ${{ matrix.database.name }} Database on ${{ matrix.os }}
+    name: Integration Tests Backed by ${{ matrix.database.name }} Database
     needs: unit-tests
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu-latest, windows-latest, macos-latest ]
         database: [
           {
             name: ArangoDB,
@@ -114,7 +113,7 @@ jobs:
             profile: neo4j
           }
         ]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest # Docker setup on GitHub Win & Mac runners really sucks. We prioritize maintainability&simplicity over comprehensiveness
     steps:
       - name: Checkout Repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
