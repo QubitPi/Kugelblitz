@@ -35,6 +35,6 @@ the __exclusive__ dependencies and source files for ArangoDB. What this means is
 :::info[Important]
 
 <img src="https://github.com/QubitPi/QubitPi/blob/master/img/Emilie-taking-notes.png?raw=true" width="70px"/> Always
-specify profile in any `mvn` commands
+specify profile in any `mvn` commands, otherwise, the default profile `arango` is picked up by default.
 
 :::

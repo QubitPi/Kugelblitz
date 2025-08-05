@@ -63,7 +63,7 @@ jobs:
         with:
           java-version: ${{ env.JDK_VERSION }}
           distribution: ${{ env.JDK_DISTRIBUTION }}
-      - name: Run unit & integration tests
+      - name: Run checkstyle
         run: mvn checkstyle:check
 
   unit-tests:
@@ -94,7 +94,7 @@ jobs:
         with:
           java-version: ${{ env.JDK_VERSION }}
           distribution: ${{ env.JDK_DISTRIBUTION }}
-      - name: Run unit & integration tests
+      - name: Run unit tests
         run: mvn -B clean test -P ${{ matrix.database.profile }}
 
   integration-tests:
@@ -124,7 +124,7 @@ jobs:
         with:
           java-version: ${{ env.JDK_VERSION }}
           distribution: ${{ env.JDK_DISTRIBUTION }}
-      - name: Run unit & integration tests
+      - name: Run integration tests
         run: mvn -B clean verify -P ${{ matrix.database.profile }}
 
   docker-image:
