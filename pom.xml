@@ -254,7 +254,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
-                        <configuration combine.self="override">
+                        <configuration combine.self="append">
                             <excludes>
                                 <exclude>**/neo4j/*</exclude>
                             </excludes>
@@ -314,7 +314,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
-                        <configuration combine.self="override">
+                        <configuration combine.self="append">
                             <excludes>
                                 <exclude>**/arango/*</exclude>
                             </excludes>
